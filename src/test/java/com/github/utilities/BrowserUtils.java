@@ -17,9 +17,12 @@ public class BrowserUtils {
     }
 
     public static void verifyTitle(WebDriver driver, String expectedTitle){
-        String actualTitle = driver.getTitle();
 
-        Assert.assertEquals(actualTitle,expectedTitle);
+//        String actualTitle = driver.getTitle();
+//        Assert.assertEquals(actualTitle,expectedTitle);
+
+        String actualTitlePage = driver.getTitle();
+        Assert.assertTrue(expectedTitle.contains(actualTitlePage));
     }
 
 }

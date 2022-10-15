@@ -53,7 +53,20 @@ public class Driver {
 
         // Same driver instance will be returned every time we call Driver.getDriver() method
         return driver;
+    }
 
+    public static void quitDriver(){
+        if (driver != null){
+            driver.quit();
+            driver = null;
+        }
+    }
+
+    public static void closeDriver(){
+        if (driver != null){
+            driver.close();
+            driver = null;
+        }
     }
 
 }

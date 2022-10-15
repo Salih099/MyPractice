@@ -3,6 +3,7 @@ package com.github.utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class CRM_Utilities {
 
@@ -10,19 +11,42 @@ public class CRM_Utilities {
     //• Name: login_crm()
     //• Return type: void
     //• Arg1: WebDriver driver
-    public static void login_crm(WebDriver driver){
-        //3. Enter valid username  // hr2@cydeo.com
-        WebElement inputUsername = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
-        inputUsername.sendKeys("hr2@cydeo.com");
+    public static void login_Crm_Store(WebDriver driver){
 
-        //4. Enter valid password  // UserUser
-        WebElement inputPassword = driver.findElement(By.xpath("//input[@name='USER_PASSWORD']"));
-        inputPassword.sendKeys("UserUser");
+        WebElement inputUsername = driver.findElement(By.xpath("//input[@id='prependedInput']"));
+        inputUsername.sendKeys(ConfigurationReader.getProperty("storeManager1"));
 
-        //5. Click to Log In button
-        WebElement loginBtn = driver.findElement(By.xpath("//input[@class='login-btn']"));
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+
+        WebElement loginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
         loginBtn.click();
     }
+
+    public static void login_crm_Sales(WebDriver driver){
+
+        WebElement inputUsername = driver.findElement(By.xpath("//input[@id='prependedInput']"));
+        inputUsername.sendKeys(ConfigurationReader.getProperty("salesManager1"));
+
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+
+        WebElement loginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
+        loginBtn.click();
+    }
+
+    public static void login_crm_Driver(WebDriver driver){
+
+        WebElement inputUsername = driver.findElement(By.xpath("//input[@id='prependedInput']"));
+        inputUsername.sendKeys(ConfigurationReader.getProperty("driver1"));
+
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+
+        WebElement loginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
+        loginBtn.click();
+    }
+
 
 
     //Method #2 info:
@@ -32,16 +56,16 @@ public class CRM_Utilities {
     //• Arg2: String username
     //• Arg3: String password
     public static void login_crm(WebDriver driver,String username,String password){
-        //3. Enter valid username  // hr2@cydeo.com
-        WebElement inputUsername = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
+        //3. Enter valid username
+        WebElement inputUsername = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         inputUsername.sendKeys(username);
 
-        //4. Enter valid password  // UserUser
-        WebElement inputPassword = driver.findElement(By.xpath("//input[@name='USER_PASSWORD']"));
+        //4. Enter valid password
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
         inputPassword.sendKeys(password);
 
         //5. Click to Log In button
-        WebElement loginBtn = driver.findElement(By.xpath("//input[@class='login-btn']"));
+        WebElement loginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
         loginBtn.click();
     }
 }
